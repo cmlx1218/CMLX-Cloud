@@ -1,0 +1,28 @@
+server:
+  port: 8001
+  servlet:
+    # 应用的上下文路径，也可以称为项目路径，是构成url地址的一部分
+    context-path: /register
+
+spring:
+  application:
+    name: CMLX-Eureka
+  security:
+    user:
+      name: cmlx
+      password: cmlx1218
+
+eureka:
+  instance:
+    # 应用实例主机名
+    hostname: localhost
+  client:
+    # 一般情况下，Eureka服务端是不需要再注册自己的
+    register-with-eureka: false
+    # 是否从Eureka获取注册信息
+    fetch-registry: false
+    # 更新实例信息的变化到Eureka服务端的间隔时间
+    instance-info-replication-interval-seconds: 30
+#    service-url:
+#      # Eureka Client 注册到 Eureka Server的地址
+#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}${server.servlet.context-path}/eureka/
