@@ -9,20 +9,26 @@
         <relativePath>../cmlx-cloud/pom.xml</relativePath>
     </parent>
 
-    <artifactId>cmlx-eureka</artifactId>
+    <artifactId>cmlx-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cmlx-eureka</name>
-    <description>CMLX_Cloud服务注册中心(Eureka)</description>
+    <name>cmlx-gateway</name>
+    <description>CMLX-Cloud 网关服务</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <groupId>cc.cmlx</groupId>
+            <artifactId>cmlx-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-security</artifactId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -34,6 +40,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

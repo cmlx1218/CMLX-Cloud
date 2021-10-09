@@ -22,6 +22,7 @@
         <module>../cmlx-commons</module>
         <module>../cmlx-eureka</module>
         <module>../cmlx-auth</module>
+        <module>../cmlx-gateway</module>
     </modules>
 
     <properties>
