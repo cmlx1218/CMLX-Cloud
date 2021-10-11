@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>cmlx-cloud</artifactId>
+        <groupId>cc.cmlx</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../cmlx-cloud</relativePath>
+    </parent>
+
+    <artifactId>cmlx-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>cmlx-server-system</module>
+    </modules>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>cc.cmlx</groupId>
+            <artifactId>cmlx-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

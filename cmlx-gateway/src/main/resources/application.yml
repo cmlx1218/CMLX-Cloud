@@ -25,6 +25,14 @@ zuul:
       path: /auth/**
       serviceId: CMLX-Auth
       sensitiveHeaders: "*"
+    system:
+      path: /system/**
+      serviceId: CMLX-Server-System
+      sensitiveHeaders: "*"
+    test:
+      path: /test/**
+      serviceId: CMLX-Server-Test
+      sensitiveHeaders: "*"
   # 开启重试机制
   retryable: true
   # Zuul配合Eureka后会有一套默认的配置规则，这里我们只想请求根据我们显示配置的路由规则走，所以设置为*，表示关闭所有默认路由配置规则
@@ -36,7 +44,11 @@ zuul:
   ribbon:
     eager-load:
       enabled: true
+  SendErrorFilter:
+    error:
+      disable: true
 
 # 设置请求超时时间，单位为毫秒；
 ribbon:
   ReadTimeout: 3000
+

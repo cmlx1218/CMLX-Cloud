@@ -23,6 +23,7 @@
         <module>../cmlx-eureka</module>
         <module>../cmlx-auth</module>
         <module>../cmlx-gateway</module>
+        <module>../cmlx-server</module>
     </modules>
 
     <properties>

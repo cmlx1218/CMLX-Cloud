@@ -1,4 +1,4 @@
-package com.cmlx.auth.config;
+package cc.cmlx.system.config;
 
 import com.cmlx.commons.handler.CmlxAccessDeniedHandler;
 import com.cmlx.commons.handler.CmlxAuthExceptionEntryPoint;
@@ -11,25 +11,22 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 
 /**
  * @Author CMLX
- * @Date -> 2021/10/9 16:32
- * @Desc -> 优先级高于CmlxSecurityConfigure order = 3
- * 用于处理非/oauth/开头的请求，其主要用于资源的保护，
- * 客户端只能通过OAuth2协议发放的令牌来从资源服务器中获取受保护的资源
+ * @Date -> 2021/10/11 12:15
+ * @Desc -> 所有访问CMLX-ServerSystem的请求都需要认证，只有通过认证服务器发放的令牌才能进行访问
  **/
 @Configuration
-//开启资源服务器相关配置
 @EnableResourceServer
-public class CmlxResourceServerConfigure extends ResourceServerConfigurerAdapter {
+public class CmlxServerSystemResourceServerConfigure extends ResourceServerConfigurerAdapter {
 
     @Autowired
     private CmlxAccessDeniedHandler accessDeniedHandler;
     @Autowired
     private CmlxAuthExceptionEntryPoint authExceptionEntryPoint;
 
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                //表明该安全配置对所有请求都生效
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
@@ -41,4 +38,5 @@ public class CmlxResourceServerConfigure extends ResourceServerConfigurerAdapter
         resources.authenticationEntryPoint(authExceptionEntryPoint)
                 .accessDeniedHandler(accessDeniedHandler);
     }
+
 }
