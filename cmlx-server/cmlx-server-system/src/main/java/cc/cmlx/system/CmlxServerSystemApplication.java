@@ -1,6 +1,6 @@
 package cc.cmlx.system;
 
-import com.cmlx.commons.annotation.EnableCmlxAuthExceptionHandler;
+import com.cmlx.commons.annotation.CmlxCloudApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -8,10 +8,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @EnableDiscoveryClient
 @SpringBootApplication
+@CmlxCloudApplication
 // 开启Spring Cloud Security权限注解
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-// 开启注册 CmlxAccessDeniedHandler和CmlxAuthExceptionEntryPoint
-@EnableCmlxAuthExceptionHandler
 public class CmlxServerSystemApplication {
 
     public static void main(String[] args) {
