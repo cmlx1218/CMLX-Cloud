@@ -14,7 +14,7 @@
     <groupId>cc.cmlx</groupId>
     <artifactId>cmlx-cloud</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>CMLX-Cloud</name>
+    <name>cmlx-cloud</name>
     <packaging>pom</packaging>
     <description>CMLX-Cloud: Spring Cloud, Spring Security OAuth2 微服务权限管理框架</description>
 

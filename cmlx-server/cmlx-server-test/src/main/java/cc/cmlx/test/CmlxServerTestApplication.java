@@ -1,9 +1,6 @@
 package cc.cmlx.test;
 
 import com.cmlx.commons.annotation.CmlxCloudApplication;
-import com.cmlx.commons.annotation.EnableCmlxAuthExceptionHandler;
-import com.cmlx.commons.annotation.EnableCmlxOauth2FeignClient;
-import com.cmlx.commons.annotation.EnableCmlxServerProtect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

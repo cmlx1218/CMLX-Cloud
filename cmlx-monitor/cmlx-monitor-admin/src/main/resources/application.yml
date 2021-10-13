@@ -1,0 +1,17 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: CMLX-Monitor-Admin
+  boot:
+    admin:
+      ui:
+        title: ${spring.application.name}
+  security:
+    user:
+      name: cmlx
+      password: cmlx1218
+  thymeleaf:
+    check-template: false
+    check-template-location: false
