@@ -1,8 +1,12 @@
 package com.cmlx.commons.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 
-import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
 
 /**
  * @Author CMLX
@@ -10,19 +14,38 @@ import java.io.Serializable;
  * @Desc ->
  **/
 @Data
-public class CmlxAuthUser implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class CmlxAuthUser extends User {
 
-    private static final long serialVersionUID = -7166267596515308846L;
-    private String username;
+    private Long userId;
 
-    private String password;
+    private String avatar;
 
-    private boolean accountNonExpired = true;
+    private String email;
 
-    private boolean accountNonLocked = true;
+    private String mobile;
 
-    private boolean credentialsNonExpired = true;
+    private String sex;
 
-    private boolean enabled = true;
+    private Long deptId;
 
+    private String deptName;
+
+    private String roleId;
+
+    private String roleName;
+
+    private Date lastLoginTime;
+
+    private String description;
+
+    private String status;
+
+    public CmlxAuthUser(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
+    }
+
+    public CmlxAuthUser(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+    }
 }

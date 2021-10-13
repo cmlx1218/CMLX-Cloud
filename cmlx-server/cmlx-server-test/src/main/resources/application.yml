@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: CMLX-Server-Test
+  # 还没有引入多数据源配置，所以需要在它的配置文件application.yml里关闭多数据源自动装配
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration
+
 
 eureka:
   instance:
@@ -29,3 +33,4 @@ feign:
     enabled: true
 hystrix:
   shareSecurityContext: true
+

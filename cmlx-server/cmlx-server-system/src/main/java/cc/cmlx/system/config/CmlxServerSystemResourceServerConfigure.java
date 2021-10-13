@@ -1,7 +1,9 @@
 package cc.cmlx.system.config;
 
+import cc.cmlx.system.properties.CmlxServerSystemProperties;
 import com.cmlx.commons.handler.CmlxAccessDeniedHandler;
 import com.cmlx.commons.handler.CmlxAuthExceptionEntryPoint;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,14 +24,19 @@ public class CmlxServerSystemResourceServerConfigure extends ResourceServerConfi
     private CmlxAccessDeniedHandler accessDeniedHandler;
     @Autowired
     private CmlxAuthExceptionEntryPoint authExceptionEntryPoint;
+    @Autowired
+    private CmlxServerSystemProperties properties;
 
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        String[] anonUrls = StringUtils.splitByWholeSeparatorPreserveAllTokens(properties.getAnonUrl(), ",");
+
         http.csrf().disable()
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
+                .antMatchers(anonUrls).permitAll()
                 .antMatchers("/**").authenticated();
     }
 
